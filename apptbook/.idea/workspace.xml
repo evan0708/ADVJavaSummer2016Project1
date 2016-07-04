@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52a7e7b1-404c-48ea-8c76-12bae3799907" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/evanchu.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/it/java/edu/pdx/cs410J/shuping/Project1IT.java" afterPath="$PROJECT_DIR$/src/it/java/edu/pdx/cs410J/shuping/Project1IT.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/pdx/cs410J/shuping/Project1.java" afterPath="$PROJECT_DIR$/src/main/java/edu/pdx/cs410J/shuping/Project1.java" />
@@ -28,8 +29,8 @@
       <file leaf-file-name="Project1.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/pdx/cs410J/shuping/Project1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="118" column="37" selection-start-line="118" selection-start-column="37" selection-end-line="118" selection-end-column="37" />
+            <state relative-caret-position="-126">
+              <caret line="128" column="45" selection-start-line="128" selection-start-column="45" selection-end-line="128" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -40,8 +41,8 @@
       <file leaf-file-name="Project1IT.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/it/java/edu/pdx/cs410J/shuping/Project1IT.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="193" column="85" selection-start-line="193" selection-start-column="74" selection-end-line="193" selection-end-column="85" />
+            <state relative-caret-position="3063">
+              <caret line="210" column="51" selection-start-line="210" selection-start-column="51" selection-end-line="210" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#578#579#0" expanded="true" />
@@ -119,8 +120,8 @@
         <option value="$PROJECT_DIR$/src/main/java/edu/pdx/cs410J/shuping/AppointmentBook.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/pdx/cs410J/shuping/Appointment.java" />
         <option value="$PROJECT_DIR$/src/test/java/edu/pdx/cs410J/shuping/AppointmentTest.java" />
-        <option value="$PROJECT_DIR$/src/it/java/edu/pdx/cs410J/shuping/Project1IT.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/pdx/cs410J/shuping/Project1.java" />
+        <option value="$PROJECT_DIR$/src/it/java/edu/pdx/cs410J/shuping/Project1IT.java" />
       </list>
     </option>
   </component>
@@ -305,7 +306,7 @@
     <property name="last_opened_file_path" value="$USER_HOME$/CS410J/Project1_done/airline/pom.xml" />
     <property name="extract.method.default.visibility" value="private" />
   </component>
-  <component name="RunManager" selected="Application.Project1">
+  <component name="RunManager" selected="JUnit.Project1IT">
     <configuration default="false" name="Project1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -315,7 +316,7 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="edu.pdx.cs410J.shuping.Project1" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="-print -readme Evan description 99/99/2016 14:39 07/18/2016 15:40" />
+      <option name="PROGRAM_PARAMETERS" value="Evan description 07/8/2016 14:39 07/18/2016 15:40" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -664,8 +665,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.Project1" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.Project1IT" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.Project1IT" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Project1" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.AppointmentTest" />
       </list>
     </recent_temporary>
@@ -692,34 +693,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Project1IT - 2016.07.04 at 11h 53m 47s.xml">
+    <history-entry file="Project1IT - 2016.07.04 at 13h 29m 54s.xml">
       <configuration name="Project1IT" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Project1IT - 2016.07.04 at 11h 59m 27s.xml">
+    <history-entry file="Project1IT - 2016.07.04 at 13h 30m 17s.xml">
       <configuration name="Project1IT" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Project1IT - 2016.07.04 at 12h 00m 28s.xml">
+    <history-entry file="Project1IT - 2016.07.04 at 13h 30m 36s.xml">
       <configuration name="Project1IT" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Project1IT - 2016.07.04 at 12h 02m 08s.xml">
+    <history-entry file="Project1IT - 2016.07.04 at 14h 00m 04s.xml">
       <configuration name="Project1IT" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Project1IT - 2016.07.04 at 12h 03m 55s.xml">
+    <history-entry file="Project1IT - 2016.07.04 at 14h 03m 07s.xml">
       <configuration name="Project1IT" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Project1IT - 2016.07.04 at 12h 04m 16s.xml">
+    <history-entry file="Project1IT - 2016.07.04 at 14h 03m 25s.xml">
       <configuration name="Project1IT" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Project1IT - 2016.07.04 at 12h 05m 08s.xml">
+    <history-entry file="Project1IT - 2016.07.04 at 14h 22m 21s.xml">
       <configuration name="Project1IT" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Project1IT - 2016.07.04 at 12h 05m 37s.xml">
+    <history-entry file="Project1IT - 2016.07.04 at 14h 24m 49s.xml">
       <configuration name="Project1IT" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Project1IT - 2016.07.04 at 12h 15m 47s.xml">
+    <history-entry file="Project1IT - 2016.07.04 at 14h 25m 33s.xml">
       <configuration name="Project1IT" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Project1IT - 2016.07.04 at 12h 18m 02s.xml">
+    <history-entry file="Project1IT - 2016.07.04 at 14h 26m 19s.xml">
       <configuration name="Project1IT" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -735,7 +736,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41290322" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36612904" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -852,10 +853,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/text/DateFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="365" column="0" selection-start-line="365" selection-start-column="0" selection-end-line="365" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/it/java/edu/pdx/cs410J/shuping/Project1IT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="193" column="85" selection-start-line="193" selection-start-column="74" selection-end-line="193" selection-end-column="85" />
+        <state relative-caret-position="3063">
+          <caret line="210" column="51" selection-start-line="210" selection-start-column="51" selection-end-line="210" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#578#579#0" expanded="true" />
@@ -866,8 +875,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/pdx/cs410J/shuping/Project1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="118" column="37" selection-start-line="118" selection-start-column="37" selection-end-line="118" selection-end-column="37" />
+        <state relative-caret-position="-126">
+          <caret line="128" column="45" selection-start-line="128" selection-start-column="45" selection-end-line="128" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

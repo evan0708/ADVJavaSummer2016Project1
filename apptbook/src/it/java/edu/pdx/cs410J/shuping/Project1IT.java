@@ -75,7 +75,7 @@ public class Project1IT extends InvokeMainTestCase {
 
   @Test
   public void whenNoOptionArgumentsPassingExitCodeIsZero() throws Exception {
-    assertThatArgumentsAreValid("owner", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
+    assertThatArgumentsAreValid("owner", "description", "7/08/2016", "14:39", "7/18/2016", "15:40");
   }
 
   private void assertThatArgumentsAreValid(String...args) {
@@ -172,61 +172,61 @@ public class Project1IT extends InvokeMainTestCase {
 
   @Test
   public void when3rdArgumentBeginDateIsNotCorrectFormatContainUnderscoreShouldPrintStandardErrorMessage() throws Exception {
-    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    String errorMessage = Project1.UNPARSEABLE_DATE;
     assertThatStandardErrorContains(errorMessage, "Evan", "description", "7_08_2016", "14:39", "07/18/2016", "15:40");
   }
 
   @Test
   public void when3rdArgumentBeginDateIsNotCorrectFormatWithoutSlashShouldPrintStandardErrorMessage() throws Exception {
-    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    String errorMessage = Project1.UNPARSEABLE_DATE;
     assertThatStandardErrorContains(errorMessage, "Evan", "description", "7082016", "14:39", "07/18/2016", "15:40");
   }
 
   @Test
   public void when3rdArgumentBeginDateIsNotCorrectFormatContainLetterShouldPrintStandardErrorMessage() throws Exception {
-    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    String errorMessage = Project1.UNPARSEABLE_DATE;
     assertThatStandardErrorContains(errorMessage, "Evan", "description", "7_08_2016aa", "14:39", "07/18/2016", "15:40");
   }
 
   @Test
   public void when3rdArgumentBeginDateOutOfRangeShouldPrintStandardErrorMessage() throws Exception {
-    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    String errorMessage = Project1.INVALID_DATE;
     assertThatStandardErrorContains(errorMessage, "Evan", "description", "99/99/9999", "14:39", "07/18/2016", "15:40");
   }
 
   @Test
   public void when3rdArgumentBeginDateIsNotCorrectFormatOnlyHaveYearShouldPrintStandardErrorMessage() throws Exception {
-    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    String errorMessage = Project1.UNPARSEABLE_DATE;
     assertThatStandardErrorContains(errorMessage, "Evan", "description", "2016", "14:39", "07/18/2016", "15:40");
   }
 
   @Test
   public void when4thArgumentBeginTimeOutOfRangeShouldPrintStandardErrorMessage() throws Exception {
-    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    String errorMessage = Project1.UNPARSEABLE_DATE;
     assertThatStandardErrorContains(errorMessage, "Evan", "description", "7_08_2016", "99:99", "07/18/2016", "15:40");
   }
 
   @Test
   public void when4thArgumentBeginTimeContainLetterShouldPrintStandardErrorMessage() throws Exception {
-    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    String errorMessage = Project1.UNPARSEABLE_DATE;
     assertThatStandardErrorContains(errorMessage, "Evan", "description", "7_08_2016", "08:39aa", "07/18/2016", "15:40");
   }
 
   @Test
   public void when4thArgumentBeginTimeWithoutColonShouldPrintStandardErrorMessage() throws Exception {
-    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    String errorMessage = Project1.UNPARSEABLE_DATE;
     assertThatStandardErrorContains(errorMessage, "Evan", "description", "7_08_2016", "0839", "07/18/2016", "15:40");
   }
 
   @Test
   public void when4thArgumentBeginTimeContainNoneColonSymbolShouldPrintStandardErrorMessage() throws Exception {
-    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    String errorMessage = Project1.UNPARSEABLE_DATE;
     assertThatStandardErrorContains(errorMessage, "Evan", "description", "7_08_2016", "08/39", "07/18/2016", "15:40");
   }
 
   @Test
   public void when4thArgumentBeginTimeOnlyHaveHourShouldPrintStandardErrorMessage() throws Exception {
-    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    String errorMessage = Project1.UNPARSEABLE_DATE;
     assertThatStandardErrorContains(errorMessage, "Evan", "description", "7_08_2016", "08", "07/18/2016", "15:40");
   }
 
@@ -237,7 +237,7 @@ public class Project1IT extends InvokeMainTestCase {
 
   @Test
   public void afterOptionThe3rdArgumentBeginDateOutOfRangeShouldPrintStandardErrorMessage() throws Exception {
-    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    String errorMessage = Project1.UNPARSEABLE_DATE;
     assertThatStandardErrorContains(errorMessage, "-print", "-readme", "Evan", "description", "99_99_9999", "14:39", "07/18/2016", "15:40");
   }
 

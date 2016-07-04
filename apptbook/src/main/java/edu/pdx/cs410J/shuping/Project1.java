@@ -13,13 +13,13 @@ public class Project1 {
 
   public static final String USAGE = "usage: java edu.pdx.cs410J.shuping.Project1 [Options] <args>\n" +
                                      "args are (in this order):\n" +
-                                         "owner The person whose owns the appt book\n" +
-                                         "description A description of the appointment\n" +
-                                         "beginTime When the appt begins (24-hour time)\n" +
-                                         "endTime When the appt ends (24-hour time)\n" +
+                                         "owner                The person whose owns the appt book\n" +
+                                         "description          A description of the appointment\n" +
+                                         "beginTime            When the appt begins (24-hour time)\n" +
+                                         "endTime              When the appt ends (24-hour time)\n" +
                                      "options are (options may appear in any order):\n" +
-                                         "-print Prints a description of the new appointment\n" +
-                                         "-README Prints a README for this project and exits\n" +
+                                         "-print               Prints a description of the new appointment\n" +
+                                         "-README              Prints a README for this project and exits\n" +
                                      "Date and time should be in the format: mm/dd/yyyy hh:mm";
   public static final int MINIMUM_ARGUMENTS = 6;
   public static final int MAXIMUM_ARGUMENTS = 8;
@@ -30,10 +30,13 @@ public class Project1 {
   public static final String INVALID_COMMAND_LINE_OPTIONS_ARGUMENT = "Invalid command line options argument";
   public static final String INVALID_OWNER_CONTAINS_NONE_ALPHABET = "Invalid owner contains none alphabet";
   public static final String INVALID_DATE_AND_TIME = "Invalid date and time, please using format:MM/DD/YYYY hh:mm";
+  public static final String INVALID_DATE = "Invalid date, please using format:MM/DD/YYYY";
+  public static final String INVALID_TIME = "Invalid time, please using format:HH:mm";
+  public static final String UNPARSEABLE_DATE = "Unparseable date:";
   private static final SimpleDateFormat dateTimeFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm");
 
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws ParseException {
     Class c = AbstractAppointmentBook.class;  // Refer to one of Dave's classes so that we can be sure it is on the classpath
     boolean isContainPrint = false;
     boolean isContainReadme = false;
@@ -91,23 +94,72 @@ public class Project1 {
 
     // Valid begin date and time if is correct format, then store it.
     String beginDate = rearrangeArgs[2];
+    validateMultipleDateFormat(beginDate);
     String beginTime = rearrangeArgs[3];
+    validateTimeFormat(beginTime);
     StringBuilder sbBeginDateAndTime = new StringBuilder();
     sbBeginDateAndTime.append(beginDate + " " + beginTime);
     String validBeginDateTime = validateDateAndTime(sbBeginDateAndTime);
     System.out.println("validBeginDateTime: " + validBeginDateTime);
 
     // Valid end date and time if is correct format, then store it.
+
     String endDate = rearrangeArgs[4];
+    validateMultipleDateFormat(endDate);
     String endTime = rearrangeArgs[5];
+    validateTimeFormat(endTime);
     StringBuilder sbEndDateAndTime = new StringBuilder();
     sbEndDateAndTime.append(endDate + " " + endTime);
     String validEndDateTime = validateDateAndTime(sbEndDateAndTime);
     System.out.println("validEndDateTime: " + validEndDateTime);
 
+
     printAppointmentInfo(rearrangeArgs, isContainPrint, isContainReadme);
 
     System.exit(0);
+  }
+
+  private static boolean validateTimeFormat(String value) {
+    Date date = null;
+    try {
+      SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+      date = sdf.parse(value);
+      if (!value.equals(sdf.format(date))) {
+        date = null;
+        errorPrintUsageAndExit(INVALID_TIME);
+      }
+    } catch (ParseException ex) {
+      ex.printStackTrace();
+    }
+    return date != null;
+  }
+
+  private static void validateMultipleDateFormat(String inputDate) {
+    if (true == isValidDateFormat("MM/dd/yyyy", inputDate)) {
+      System.out.println("valid1");
+    } else if (true == isValidDateFormat("M/dd/yyyy", inputDate)) {
+      System.out.println("valid2");
+    } else if (true == isValidDateFormat("MM/d/yyyy", inputDate)) {
+      System.out.println("valid3");
+    } else if (true == isValidDateFormat("M/d/yyyy", inputDate)) {
+      System.out.println("valid4");
+    } else {
+      errorPrintUsageAndExit(INVALID_DATE);
+    }
+  }
+
+  private static boolean isValidDateFormat(String dateFormat, String value) {
+    Date date = null;
+    try {
+      SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+      date = sdf.parse(value);
+      if (!value.equals(sdf.format(date))) {
+        date = null;
+      }
+    } catch (ParseException ex) {
+      ex.printStackTrace();
+    }
+    return date != null;
   }
 
   private static String validateDateAndTime(StringBuilder sb) {
@@ -116,7 +168,7 @@ public class Project1 {
 
     try {
       date = dateTimeFormat.parse(sb.toString());
-      System.out.println("Date: " + date);
+      //System.out.println("Date: " + date);
       validateDate = dateTimeFormat.format(date);
 
     } catch (ParseException ex) {
