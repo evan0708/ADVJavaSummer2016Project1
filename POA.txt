@@ -1,0 +1,9 @@
+CS501J - Project1
+Plan of Attack
+Studnet: Shu-Ping Chu
+
+For the project1 design, it is good for me to write the code by using test driven development methodology. The reason why is very easy to find the bugs while is implementing the code especially when write a good parser. In order to write a good parser to parse the command line arguments with up to two options when the options order doesn’t matter. I would like to separate them into three different parts. 
+
+First, I will write some test cases to test the acceptance of minimum and maximum passing arguments to determine the upper bound and lower bound limitation of command line arguments parsing, which minimum is 6 arguments without options (2 for begintTime, and 2 for endTime), and maximum is 8 arguments include two options. Any number of arguments not between this range will fail immediately. Second, write some test cases to test if option arguments are included or not, could be has at least one option, both or none of them. Moreover, case insensitive for option argument would be included as well. 
+
+Finally,  once gether all of the necessary arguments for example, like owner, description, beginTime and endTime. Each of the argument will be passed into each individual validation function to valid if those arguments are legaled. For example, the beginTime has to be the format like this mm/dd/yyyy hh:mm, and mm and dd could be either 1 or 2 digit. In addition, if any of the arguments failed to pass the validation functions, the standard error message should be prompted accordingly.   

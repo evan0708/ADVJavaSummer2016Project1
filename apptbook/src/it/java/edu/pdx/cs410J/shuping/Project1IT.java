@@ -35,8 +35,8 @@ public class Project1IT extends InvokeMainTestCase {
   public void testOneCommandLineArgumentsOwner() {
     String owner = "Evan";
     MainMethodResult result = invokeMain(owner);
-    String expected = "Evan";
-    assertThat(result.getOut(), containsString(expected));
+    String expected = Project1.MISSING_COMMAND_LINE_ARGUMENTS;
+    assertThat(result.getErr(), containsString(expected));
     assertThat(result.getExitCode(), equalTo(1));
   }
 
@@ -83,6 +83,11 @@ public class Project1IT extends InvokeMainTestCase {
     Assert.assertThat(result.getExitCode(), IsEqual.equalTo(0));
   }
 
+  private void assertThatArgumentsAreInvalid(String...args) {
+    MainMethodResult result = invokeMain(args);
+    Assert.assertThat(result.getExitCode(), IsEqual.equalTo(1));
+  }
+
   @Test
   public void firstArgumentIsDashPrintOptionExitCodeIsZero() throws Exception {
     assertThatArgumentsAreValid("-print", "owner", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
@@ -101,6 +106,139 @@ public class Project1IT extends InvokeMainTestCase {
   @Test
   public void firstArgumentCaseInsensitiveDashReadmeOptionIsValid() throws Exception {
     assertThatArgumentsAreValid("-README", "owner", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void firstAndSecondArgumentAreOptionWithReadmePrintOrderExitCodeIsZero() throws Exception {
+    assertThatArgumentsAreValid("-README", "-print", "owner", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void firstAndSecondArgumentAreOptionWithPrintReadmeOrderExitCodeIsZero() throws Exception {
+    assertThatArgumentsAreValid("-print", "-readme", "owner", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void whenPassingDuplicatedOptionArgumentShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.DUPLICATED_COMMAND_LINE_OPTION_ARGUMENTS;
+    assertThatStandardErrorContains(errorMessage, "-print", "-Print", "owner", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void whenPassingInvalidOptionArgumentShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.INVALID_COMMAND_LINE_OPTIONS_ARGUMENT;
+    assertThatStandardErrorContains(errorMessage, "-Invalid", "owner", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void whenPassingExtraArgumentsWithoutAnyValidOptionShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.COMMAND_LINE_ARGUMENTS_ARE_EXTRANEOUS;
+    assertThatStandardErrorContains(errorMessage, "owner", "owner", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void whenPassingExtraArgumentsWithOneValidOptionShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.COMMAND_LINE_ARGUMENTS_ARE_EXTRANEOUS;
+    assertThatStandardErrorContains(errorMessage, "-print", "owner", "owner", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void whenPassingExtraArgumentsWithTwoValidOptionShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.TOO_MANY_COMMAND_LINE_ARGUMENTS;
+    assertThatStandardErrorContains(errorMessage, "-readme", "-print", "owner", "owner", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void whenPassingThreeOptionArgumentsWithoutOwnerArgumentShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.INVALID_COMMAND_LINE_OPTIONS_ARGUMENT;
+    assertThatStandardErrorContains(errorMessage, "-print", "-readme", "-nothing", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void when1stArgumentOwnerContainSingleWorldExistCodeIsZero() throws Exception {
+    assertThatArgumentsAreValid("Owner", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void when1stArgumentOwnerContainMultipleWorldExistCodeIsZero() throws Exception {
+    assertThatArgumentsAreValid("Some name", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void when1stArgumentOwnerContainNoneAlphabetShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.INVALID_OWNER_CONTAINS_NONE_ALPHABET;
+    assertThatStandardErrorContains(errorMessage, "Evan0708", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void when3rdArgumentBeginDateIsNotCorrectFormatContainUnderscoreShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    assertThatStandardErrorContains(errorMessage, "Evan", "description", "7_08_2016", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void when3rdArgumentBeginDateIsNotCorrectFormatWithoutSlashShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    assertThatStandardErrorContains(errorMessage, "Evan", "description", "7082016", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void when3rdArgumentBeginDateIsNotCorrectFormatContainLetterShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    assertThatStandardErrorContains(errorMessage, "Evan", "description", "7_08_2016aa", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void when3rdArgumentBeginDateOutOfRangeShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    assertThatStandardErrorContains(errorMessage, "Evan", "description", "99/99/9999", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void when3rdArgumentBeginDateIsNotCorrectFormatOnlyHaveYearShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    assertThatStandardErrorContains(errorMessage, "Evan", "description", "2016", "14:39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void when4thArgumentBeginTimeOutOfRangeShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    assertThatStandardErrorContains(errorMessage, "Evan", "description", "7_08_2016", "99:99", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void when4thArgumentBeginTimeContainLetterShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    assertThatStandardErrorContains(errorMessage, "Evan", "description", "7_08_2016", "08:39aa", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void when4thArgumentBeginTimeWithoutColonShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    assertThatStandardErrorContains(errorMessage, "Evan", "description", "7_08_2016", "0839", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void when4thArgumentBeginTimeContainNoneColonSymbolShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    assertThatStandardErrorContains(errorMessage, "Evan", "description", "7_08_2016", "08/39", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void when4thArgumentBeginTimeOnlyHaveHourShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    assertThatStandardErrorContains(errorMessage, "Evan", "description", "7_08_2016", "08", "07/18/2016", "15:40");
+  }
+
+  @Test
+  public void whenAllOfTheArgumentsAreRandomExistCodeIsOne() throws Exception {
+    assertThatArgumentsAreInvalid("owner", "7/08/2016", "15:40", "14:39", "07/18/2016", "description");
+  }
+
+  @Test
+  public void afterOptionThe3rdArgumentBeginDateOutOfRangeShouldPrintStandardErrorMessage() throws Exception {
+    String errorMessage = Project1.INVALID_DATE_AND_TIME;
+    assertThatStandardErrorContains(errorMessage, "-print", "-readme", "Evan", "description", "99_99_9999", "14:39", "07/18/2016", "15:40");
   }
 
 }
