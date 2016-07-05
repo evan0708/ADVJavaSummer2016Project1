@@ -29,26 +29,24 @@ public class AppointmentTest {
     }
 
     @Test
-    public void appointmentOwnerContainNamedEvan(){
-        String name = "Evan";
-        String description = "";
+    public void appointmentOwnerContainDescriptionDinner(){
+        String description = "dinner";
         String beginTime = "";
         String endTime ="";
-        Appointment appointment = createAppointmentWithNameDescriptionBeginTimeEndTime(name, description, beginTime, endTime);
-        assertThat(appointment.getOwner(), containsString(name));
+        Appointment appointment = createAppointmentWithDescriptionBeginTimeEndTime(description, beginTime, endTime);
+        assertThat(appointment.getDescription(), containsString(description));
     }
 
-    private Appointment createAppointmentWithNameDescriptionBeginTimeEndTime(String name, String description, String beginTime, String endTime) {
-        return new Appointment(name, description, beginTime, endTime);
+    private Appointment createAppointmentWithDescriptionBeginTimeEndTime(String description, String beginTime, String endTime) {
+        return new Appointment(description, beginTime, endTime);
     }
 
     @Test
     public void appointmentDescriptionContainHaveLunchWithLisa() throws Exception {
-        String name = "";
         String description = "Have lunch with Lisa";
         String beginTime = "";
         String endTime ="";
-        Appointment appointment = createAppointmentWithNameDescriptionBeginTimeEndTime(name, description, beginTime, endTime);
+        Appointment appointment = createAppointmentWithDescriptionBeginTimeEndTime(description, beginTime, endTime);
         assertThat(appointment.getDescription(), containsString(description));
     }
 
@@ -58,18 +56,17 @@ public class AppointmentTest {
         String description = "";
         String beginTime = "7/15/2016";
         String endTime ="";
-        Appointment appointment = createAppointmentWithNameDescriptionBeginTimeEndTime(name, description, beginTime, endTime);
+        Appointment appointment = createAppointmentWithDescriptionBeginTimeEndTime(description, beginTime, endTime);
         assertThat(appointment.getBeginTimeString(), containsString(beginTime));
 
     }
 
     @Test
     public void appointmentEndTimeContainGivenTime() throws Exception {
-        String name = "";
         String description = "";
         String beginTime ="";
         String endTime = "06/2/2016";
-        Appointment appointment = createAppointmentWithNameDescriptionBeginTimeEndTime(name, description, beginTime, endTime);
+        Appointment appointment = createAppointmentWithDescriptionBeginTimeEndTime(description, beginTime, endTime);
         assertThat(appointment.getEndTimeString(), containsString(endTime));
     }
 }
