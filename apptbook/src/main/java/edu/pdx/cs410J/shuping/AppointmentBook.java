@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * <code>AppointmentBook</code> Each appointmentBook has owner and a list of appointments
  *
- * @Author Shu-Ping Chu on 6/30/16.
+ * @author Shuping Chu
  */
 public class AppointmentBook extends AbstractAppointmentBook<Appointment> {
     private String owner = null;
@@ -20,14 +20,14 @@ public class AppointmentBook extends AbstractAppointmentBook<Appointment> {
      */
     public AppointmentBook() {
         this("AppointmentBook default constructor");
-        appointments = new ArrayList<Appointment>();
+        appointments = null;
     }
 
     /**
      * Create <code>AppointmentBook</code> constructor with parameters owner
      * Set owner to owner, and create a list of appointment
      *
-     * @param owner
+     * @param owner for store into <code>AppointmentBook</code>
      */
     public AppointmentBook(String owner) {
         this.owner = owner;

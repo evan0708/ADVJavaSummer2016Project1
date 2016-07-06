@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.3.5" timestamp="2016-07-06T14:35:02.266">
+<file name="/home/evanchu/CS510Java/project1/ADVJavaSummer2016Project1/apptbook/src/main/java/edu/pdx/cs410J/shuping/Project1.java">
+<violation beginline="61" endline="61" begincolumn="15" endcolumn="15" rule="UnusedLocalVariable" ruleset="Unused Code" package="edu.pdx.cs410J.shuping" class="Project1" method="main" variable="c" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'c'.
+</violation>
+<violation beginline="179" endline="181" begincolumn="60" endcolumn="9" rule="EmptyIfStmt" ruleset="Empty Code" package="edu.pdx.cs410J.shuping" class="Project1" method="validateMultipleTimeFormat" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/empty.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="181" endline="183" begincolumn="66" endcolumn="9" rule="EmptyIfStmt" ruleset="Empty Code" package="edu.pdx.cs410J.shuping" class="Project1" method="validateMultipleTimeFormat" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/empty.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="218" endline="220" begincolumn="65" endcolumn="9" rule="EmptyIfStmt" ruleset="Empty Code" package="edu.pdx.cs410J.shuping" class="Project1" method="validateMultipleDateFormat" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/empty.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="220" endline="222" begincolumn="71" endcolumn="9" rule="EmptyIfStmt" ruleset="Empty Code" package="edu.pdx.cs410J.shuping" class="Project1" method="validateMultipleDateFormat" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/empty.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="222" endline="224" begincolumn="71" endcolumn="9" rule="EmptyIfStmt" ruleset="Empty Code" package="edu.pdx.cs410J.shuping" class="Project1" method="validateMultipleDateFormat" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/empty.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="224" endline="226" begincolumn="70" endcolumn="9" rule="EmptyIfStmt" ruleset="Empty Code" package="edu.pdx.cs410J.shuping" class="Project1" method="validateMultipleDateFormat" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/empty.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+</file>
+</pmd>

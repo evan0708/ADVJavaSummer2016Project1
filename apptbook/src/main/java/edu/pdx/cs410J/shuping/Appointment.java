@@ -5,7 +5,7 @@ import edu.pdx.cs410J.AbstractAppointment;
 /**
  *  <code>Appointment</code> class that contain all the string object for defining the appointment
  *
- *  @author Shu-Ping Chu
+ *  @author Shuping Chu
  */
 
 public class Appointment extends AbstractAppointment {

@@ -12,7 +12,7 @@ import java.util.Date;
  * The main class for the CS410J appointment book Project 1
  * utilizes {@link AppointmentBook}, {@link Appointment} for creating new appointment into the appointmentBook
  *
- * @author Shu-Ping Chu
+ * @author Shuping Chu
  */
 public class Project1 {
 
@@ -54,8 +54,8 @@ public class Project1 {
      * Main method that will parse the command line arguments with at least 6 - 8 arguments, and
      * create as a appointment and store into the appointmentBook by owner
      *
-     * @param args [Options] -print -readme <args> owner, description, beginDate beginTime endDate endTime
-     * @throws ParseException
+     * @param args [Options] -print -readme [args] owner, description, beginDate beginTime endDate endTime
+     * @throws ParseException for any unparseable exception
      */
     public static void main(String[] args) throws ParseException {
         Class c = AbstractAppointmentBook.class;  // Refer to one of Dave's classes so that we can be sure it is on the classpath
@@ -138,7 +138,11 @@ public class Project1 {
         appointmentBook = new AppointmentBook(owner);
         appointment = new Appointment(description, validBeginDateTime, validEndDateTime);
         appointmentBook.addAppointment(appointment);
-        System.out.println(appointmentBook.getAppointments().toString());
+
+        // Display appointmentBook info
+        System.out.println("AppointmentBook detail: ");
+        System.out.println("  Owner: " + appointmentBook.getOwnerName());
+        System.out.println("  Detail: " + appointmentBook.getAppointments().toString());
 
         System.exit(0);
     }
@@ -173,9 +177,9 @@ public class Project1 {
      */
     private static void validateMultipleTimeFormat(String inputDate) {
         if (true == isValidTimeFormat("kk:mm", inputDate)) {
-            System.out.println("time valid1");
+            //System.out.println("time valid1");
         } else if (true == isValidTimeFormat("k:mm", inputDate)) {
-            System.out.println("time valid2");
+            //System.out.println("time valid2");
         } else {
             errorPrintUsageAndExit(INVALID_TIME);
         }
@@ -212,13 +216,13 @@ public class Project1 {
      */
     private static void validateMultipleDateFormat(String inputDate) {
         if (true == isValidDateFormat("MM/dd/yyyy", inputDate)) {
-            System.out.println("date valid1");
+            //System.out.println("date valid1");
         } else if (true == isValidDateFormat("M/dd/yyyy", inputDate)) {
-            System.out.println("date valid2");
+            //System.out.println("date valid2");
         } else if (true == isValidDateFormat("MM/d/yyyy", inputDate)) {
-            System.out.println("date valid3");
+            //System.out.println("date valid3");
         } else if (true == isValidDateFormat("M/d/yyyy", inputDate)) {
-            System.out.println("date valid4");
+            //System.out.println("date valid4");
         } else {
             errorPrintUsageAndExit(INVALID_DATE);
         }
