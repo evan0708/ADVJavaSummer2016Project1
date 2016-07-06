@@ -143,15 +143,14 @@ public class Project1IT extends InvokeMainTestCase {
     }
 
     @Test
-    public void whenPassingExtraArgumentsWithTwoValidOptionShouldPrintStandardErrorMessage() throws Exception {
-        String errorMessage = Project1.TOO_MANY_COMMAND_LINE_ARGUMENTS;
-        assertThatStandardErrorContains(errorMessage, "-readme", "-print", "owner", "owner", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
+    public void whenPassingExtraArgumentsWithTwoValidOptionExistCodeIsZero() throws Exception {
+        assertThatArgumentsAreValid("-readme", "-print", "owner", "owner", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
     }
 
     @Test
     public void whenPassingThreeOptionArgumentsWithoutOwnerArgumentShouldPrintStandardErrorMessage() throws Exception {
         String errorMessage = Project1.INVALID_COMMAND_LINE_OPTIONS_ARGUMENT;
-        assertThatStandardErrorContains(errorMessage, "-print", "-readme", "-nothing", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
+        assertThatStandardErrorContains(errorMessage, "-print", "-what'sup", "-nothing", "description", "7/08/2016", "14:39", "07/18/2016", "15:40");
     }
 
     @Test
@@ -243,6 +242,16 @@ public class Project1IT extends InvokeMainTestCase {
     @Test
     public void afterOptionThe3rdArgumentBeginDateOutOfRangeShouldPrintStandardErrorMessage() throws Exception {
         String errorMessage = Project1.INVALID_DATE;
-        assertThatStandardErrorContains(errorMessage, "-print", "-readme", "Evan", "description", "99_99_9999", "14:39", "07/18/2016", "15:40");
+        assertThatStandardErrorContains(errorMessage, "-print", "Evan", "description", "99_99_9999", "14:39", "07/18/2016", "15:40");
+    }
+
+    @Test
+    public void whenSeeREADMEFlagJustPrintREADMEThenProgramExistWithCodeZero() throws Exception {
+        assertThatArgumentsAreValid("-README", "owner", "description", "7_08/2016", "14:39", "7/18/2016", "15:40");
+    }
+
+    @Test
+    public void whenSeeREADMEFlagAtSecondOptionProgramExistCodeIsZero() throws Exception {
+        assertThatArgumentsAreValid("-print", "-README", "owner", "description", "7_08/2016", "14:39", "7/18/2016", "15:40");
     }
 }
